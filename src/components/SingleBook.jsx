@@ -1,9 +1,9 @@
-import { Component, useState } from "react";
+// import { Component, useState } from "react";
 import { Card } from "react-bootstrap";
 // import CommentArea from "./CommentArea";
 
 const SingleBook = (props) => {
-  const [selcted, setSelected] = useState(false);
+  // const [selcted, setSelected] = useState(false);
   // ** codice precedente alla nuova implementazione: **
   // state = {
   //   selected: false

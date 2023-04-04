@@ -13,7 +13,10 @@ const BookList = (props) => {
   // };
 
   // questa funzione è passata a SingleBook come prop, cosicché la possa chiamare internamente al click della card, per salvare il riferimento ASIN della card cliccata
-  useEffect(() => {}, [props.asin]);
+  // useEffect(() => {}, [props.asin]);
+  const changeSelectedBook = (asin) => {
+    setselectedBook(asin);
+  };
 
   return (
     <>
@@ -44,7 +47,7 @@ const BookList = (props) => {
                   <SingleBook
                     book={b} // b è l'oggetto libro vero e proprio passato come prop e accessibile all'interno di SingleBook come this.props.book
                     selectedBook={selectedBook} // selectedBook è l'ASIN passato come prop che verrà usato per determinare quale card si colorerà il bordo di rosso
-                    changeSelectedBook={this.changeSelectedBook} // changeSelectedBook è la funzione chiamata all'onClick della Card interna a SingleBook
+                    changeSelectedBook={changeSelectedBook} // changeSelectedBook è la funzione chiamata all'onClick della Card interna a SingleBook
                   />
                 </Col>
               ))}

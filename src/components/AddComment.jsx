@@ -15,7 +15,7 @@ const AddComment = (props) => {
   //   }
   // };
 
-  const fetchBook = async (e) => {
+  const sendComment = async (e) => {
     e.preventDefault();
 
     try {
@@ -52,8 +52,13 @@ const AddComment = (props) => {
     }
   };
 
+  // useEffect(() => {
+  //   fetchBook();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   return (
-    <Form onSubmit={fetchBook()}>
+    <Form onSubmit={sendComment}>
       <Form.Group className="mb-3" controlId="comment">
         <Form.Label>Commento</Form.Label>
         <Form.Control

@@ -9,11 +9,11 @@ const CommentArea = (props) => {
   // };
 
   // componentDidMount ora avverrà al primo montaggio del componente, cioè dopo la prima selezione di una card nella lista
-  useEffect(() => {
-    console.log("didMount()");
+  // useEffect(() => {
+  //   console.log("didMount()");
 
-    fetchComments();
-  }, []);
+  //   fetchComments();
+  // }, [comments]);
 
   // fetchComments viene chiamato in: componentDidMount, componentDidUpdate e anche dopo la post interna ad AddComment
   const fetchComments = async () => {
@@ -32,7 +32,7 @@ const CommentArea = (props) => {
         const commentsArr = await response.json();
         console.log("data retrieved, setState imminent....");
         // setState  accetta una callback come secondo parametro opzionale, che verrà chiamata dopo che lo stato è stato effettivamente aggiornato
-        setComments({ commentsArr }, () => console.log("setState", comments));
+        setComments(commentsArr);
       }
     } catch (error) {
       console.log(error);
@@ -40,13 +40,11 @@ const CommentArea = (props) => {
   };
 
   useEffect(() => {
-    if (props.asin !== props.asin) {
-      // in questo modo la lista dei commenti cambierà nel momento in cui selezioneremo un altra card, perché l'asin sarà cambiato dopo la nuova selezione
-      fetchComments();
-    } else {
-      console.log("componentDidUpdate but NO FETCH!");
-    }
-  }, []);
+    // in questo modo la lista dei commenti cambierà nel momento in cui selezioneremo un altra card, perché l'asin sarà cambiato dopo la nuova selezione
+    fetchComments();
+
+    console.log("componentDidUpdate but NO FETCH!");
+  }, [props.asin]);
 
   return (
     <div>
